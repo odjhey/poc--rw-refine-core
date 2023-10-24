@@ -37,7 +37,7 @@ export const dataProvider = (
             type: 'PageInfoInput',
             value: {
               sort: sortBy,
-              where: { value: filterBy, type: 'JSON' },
+              where: { ...filterBy },
               ...(mode === 'server'
                 ? {
                     start: (current - 1) * pageSize,

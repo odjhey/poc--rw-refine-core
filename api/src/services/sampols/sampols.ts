@@ -1,20 +1,16 @@
 import type { MutationResolvers, QueryResolvers } from 'types/graphql'
 
-export const sampols: QueryResolvers['sampols'] = (args) => {
-  console.log(args)
-  // generate 100 sampols
-  const data = [...Array(100).keys()].map((i) => ({
-    id: `${i}`,
-    title: 'test',
-    status: 'asdf',
-    createdAt: 'sdfi',
-  }))
+import { db } from 'src/lib/db'
 
-  // splice array using start and limit
-  if (args.pageInfo?.start !== undefined && args.pageInfo?.limit) {
-    const limited = data.splice(args.pageInfo.start, args.pageInfo.limit)
-    return { data: limited, metadata: { count: data.length } }
-  }
+export const sampols: QueryResolvers['sampols'] = async (args) => {
+  const data = await db.sampol.findMany({
+    where: args.pageInfo.where,
+    // include pagination in findMany
+    skip: args.pageInfo.start,
+    take: args.pageInfo.limit,
+    // add sorting
+    orderBy: args.pageInfo.sort,
+  })
 
   return { data, metadata: { count: data.length } }
 }
@@ -29,9 +25,15 @@ export const sampol: QueryResolvers['sampol'] = ({ id }) => {
   }
 }
 
-export const createSampol: MutationResolvers['createSampol'] = ({ input }) => {
+export const createSampol: MutationResolvers['createSampol'] = async ({
+  input,
+}) => {
+  const newSampol = await db.sampol.create({
+    data: input,
+  })
+
   return {
-    sampol: { ...input, createdAt: '1123', id: '123' },
+    sampol: newSampol,
   }
 }
 //

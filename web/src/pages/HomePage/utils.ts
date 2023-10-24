@@ -16,7 +16,7 @@ export const generateFilter = (filters?: CrudFilters) => {
         if (operator === 'eq') {
           queryFilters[`${field}`] = value
         } else {
-          queryFilters[`${field}_${operator}`] = value
+          queryFilters[`${field}`] = { [operator]: value }
         }
       } else {
         const value = filter.value as LogicalFilter[]
@@ -39,10 +39,10 @@ export const generateFilter = (filters?: CrudFilters) => {
 export const generateSort = (sorters?: CrudSorting) => {
   if (sorters && sorters.length > 0) {
     const sortQuery = sorters.map((i) => {
-      return `${i.field}:${i.order}`
+      return { [i.field]: i.order }
     })
 
-    return sortQuery.join()
+    return sortQuery
   }
 
   return []
