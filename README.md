@@ -8,6 +8,7 @@
 
 
 # TODO
-- test that rbac and other auth still works (im guess yes since rw-api-gql padin gamit)
-- include CRUD operations
+- [ ] test that rbac and other auth still works (im guess yes since rw-api-gql padin gamit)
+- [ ] include CRUD operations
+- [ ] add relationships navigation
 
