@@ -7,7 +7,7 @@ export const schema = gql`
   }
 
   input PageInfoInput {
-    sort: [String!]!
+    sort: [JSON!]!
     where: JSON
     start: Int
     limit: Int

@@ -10,13 +10,16 @@
 import { Router, Route, Set } from '@redwoodjs/router'
 
 import RefineLayout from './layouts/RefineLayout/RefineLayout'
+import SampolLayout from './layouts/SampolsLayout/SampolsLayout'
 
 const Routes = () => {
   return (
     <Router>
       <Set wrap={RefineLayout}>
         <Route path="/new-sampol" page={NewSampolPage} name="newSampol" />
-        <Route path="/sampols" page={SampolsPage} name="sampols" />
+        <Set wrap={SampolLayout}>
+          <Route path="/sampols" page={SampolsPage} name="sampols" />
+        </Set>
       </Set>
 
       <Route path="/" page={HomePage} name="home" />
