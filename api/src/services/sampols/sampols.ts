@@ -1,4 +1,4 @@
-import type { QueryResolvers } from 'types/graphql'
+import type { MutationResolvers, QueryResolvers } from 'types/graphql'
 
 export const sampols: QueryResolvers['sampols'] = (args) => {
   console.log(args)
@@ -29,11 +29,11 @@ export const sampol: QueryResolvers['sampol'] = ({ id }) => {
   }
 }
 
-// export const createSampol: MutationResolvers['createSampol'] = ({ input }) => {
-//   return db.sampol.create({
-//     data: input,
-//   })
-// }
+export const createSampol: MutationResolvers['createSampol'] = ({ input }) => {
+  return {
+    sampol: { ...input, createdAt: '1123', id: '123' },
+  }
+}
 //
 // export const updateSampol: MutationResolvers['updateSampol'] = ({
 //   id,

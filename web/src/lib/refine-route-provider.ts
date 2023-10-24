@@ -1,13 +1,20 @@
 import { useCallback, useContext } from 'react'
 
 import {
+  GoConfig,
   ParseResponse,
   ResourceContext,
   matchResourceFromRoute,
 } from '@refinedev/core'
-import { parse } from 'qs'
+import { parse, stringify } from 'qs'
 
-import { matchPath, useLocation, useParams } from '@redwoodjs/router'
+import {
+  matchPath,
+  navigate,
+  back,
+  useLocation,
+  useParams,
+} from '@redwoodjs/router'
 
 export const convertToNumberIfPossible = (value: string | undefined) => {
   if (typeof value === 'undefined') {
@@ -18,6 +25,14 @@ export const convertToNumberIfPossible = (value: string | undefined) => {
     return num
   }
   return value
+}
+
+const stringifyConfig = {
+  addQueryPrefix: true,
+  skipNulls: true,
+  arrayFormat: 'indices' as const,
+  encode: false,
+  encodeValuesOnly: true,
 }
 
 export const routerProvider =
@@ -50,12 +65,68 @@ export const routerProvider =
   //     Link?: React.ComponentType<{ to: string; children?: React.ReactNode; }>;
   // }
   {
-    go:
-      () =>
-      (...args) => {
-        console.log('go', args)
-      },
-    back: () => () => {},
+    go: () => {
+      const { search: existingSearch, hash: existingHash } = useLocation()
+
+      const fn = useCallback(
+        ({
+          to,
+          type,
+          query,
+          hash,
+          options: { keepQuery, keepHash } = {},
+        }: GoConfig) => {
+          /** Construct query params */
+          const urlQuery = {
+            ...(keepQuery &&
+              existingSearch &&
+              parse(existingSearch, { ignoreQueryPrefix: true })),
+            ...query,
+          }
+
+          if (urlQuery.to) {
+            urlQuery.to = encodeURIComponent(`${urlQuery.to}`)
+          }
+
+          const hasUrlQuery = Object.keys(urlQuery).length > 0
+
+          /** Get hash */
+          const urlHash = `#${(
+            hash ||
+            (keepHash && existingHash) ||
+            ''
+          ).replace(/^#/, '')}`
+
+          const hasUrlHash = urlHash.length > 1
+
+          const urlTo = to || ''
+
+          const fullPath = `${urlTo}${
+            hasUrlQuery ? stringify(urlQuery, stringifyConfig) : ''
+          }${hasUrlHash ? urlHash : ''}`
+
+          if (type === 'path') {
+            return fullPath
+          }
+
+          /** Navigate to the url */
+          return navigate(fullPath, {
+            replace: type === 'replace',
+          })
+        },
+        [existingHash, existingSearch, navigate]
+      )
+
+      return fn
+    },
+    back: () => {
+      const fn = useCallback(() => {
+        back()
+      }, [navigate])
+
+      return fn
+    },
+
     parse: () => {
       let params = useParams()
       const { pathname, search } = useLocation()
