@@ -54,7 +54,7 @@ const Sampols = () => {
 
   return (
     <div>
-      <table>
+      <table className="table table-zebra table-sm">
         <thead>
           {getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id}>
@@ -75,6 +75,7 @@ const Sampols = () => {
                         </div>
                         <div>
                           <input
+                            className="input input-xs input-bordered"
                             id={header.id}
                             value={
                               (header.column.getFilterValue() as string) ?? ''
@@ -113,12 +114,14 @@ const Sampols = () => {
       </table>
       <div>
         <button
+          className="btn btn-xs"
           onClick={() => setPageIndex(0)}
           disabled={!getCanPreviousPage()}
         >
           {'<<'}
         </button>
         <button
+          className="btn btn-xs"
           id="previous-button"
           onClick={() => previousPage()}
           disabled={!getCanPreviousPage()}
@@ -126,6 +129,7 @@ const Sampols = () => {
           {'<'}
         </button>
         <button
+          className="btn btn-xs"
           id="next-button"
           onClick={() => nextPage()}
           disabled={!getCanNextPage()}
@@ -133,6 +137,7 @@ const Sampols = () => {
           {'>'}
         </button>
         <button
+          className="btn btn-xs"
           onClick={() => setPageIndex(getPageCount() - 1)}
           disabled={!getCanNextPage()}
         >
@@ -147,6 +152,7 @@ const Sampols = () => {
         <span>
           | Go to page:
           <input
+            className="input input-xs input-bordered"
             type="number"
             defaultValue={getState().pagination.pageIndex + 1}
             onChange={(e) => {

@@ -70,8 +70,6 @@ export const dataProvider = (
     },
 
     create: async ({ resource, variables, meta }) => {
-      console.log('createeee', { resource, variables, meta })
-
       const singularResource = pluralize.singular(resource)
       const camelCreateName = camelcase(`create-${singularResource}`)
       const pascalCreateName = camelcase(`create-${singularResource}`, {
@@ -109,7 +107,6 @@ export const dataProvider = (
         variables: gqlVariables,
       })
 
-      console.log('---', response, { operation, singularResource })
       return {
         data: response.data[operation][singularResource],
       }

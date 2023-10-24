@@ -11,18 +11,24 @@ export const NewSampol: React.FC = () => {
   return (
     <form onSubmit={handleSubmit(onFinish)}>
       <label>Title: </label>
-      <input {...register('title', { required: true })} />
+      <input
+        className="input input-sm input-bordered"
+        {...register('title', { required: true })}
+      />
       {errors.title && <span>This field is required</span>}
       <br />
       <label>Status: </label>
-      <select {...register('status')}>
+      <select
+        className="select select-sm select-bordered"
+        {...register('status')}
+      >
         <option value="published">published</option>
         <option value="draft">draft</option>
         <option value="rejected">rejected</option>
       </select>
       <br />
       <br />
-      <input type="submit" value="Submit" />
+      <input className="btn btn-primary btn-sm" type="submit" value="Submit" />
       {formLoading && <p>Loading</p>}
     </form>
   )
