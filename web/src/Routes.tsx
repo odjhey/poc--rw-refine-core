@@ -15,7 +15,7 @@ const Routes = () => {
   return (
     <Router>
       <Set wrap={RefineLayout}>
-        <Route path="/sampol" page={SampolPage} name="sampol" />
+        <Route path="/sampols" page={SampolPage} name="sampols" />
       </Set>
 
       <Route path="/" page={HomePage} name="home" />

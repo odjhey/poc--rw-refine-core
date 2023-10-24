@@ -16,3 +16,10 @@ model UserExample {
   email String  @unique
   name  String?
 }
+
+model Sampol {
+  id        String   @id @default(cuid())
+  title     String
+  status    String
+  createdAt DateTime @default(now())
+}

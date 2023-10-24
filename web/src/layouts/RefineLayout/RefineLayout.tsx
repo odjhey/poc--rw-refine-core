@@ -1,3 +1,4 @@
+import { useApolloClient } from '@apollo/client'
 import { Refine } from '@refinedev/core'
 
 import dataProvider from 'src/pages/HomePage/dataProvider'
@@ -8,11 +9,20 @@ type RefineLayoutProps = {
 }
 
 const RefineLayout = ({ children }: RefineLayoutProps) => {
+  const client = useApolloClient()
+
   return (
     <Refine
-      dataProvider={dataProvider()}
+      // find a way to extract same gql client (apollo client) from rw
+      dataProvider={dataProvider(client)}
       routerProvider={routerProvider}
-      resources={[{ name: 'sampol', list: '/sampol' }]}
+      resources={[
+        {
+          name: 'sampol',
+          list: '/sampols',
+          meta: { fields: ['id', 'title', 'status', 'createdAt'] },
+        },
+      ]}
     >
       {children}
     </Refine>

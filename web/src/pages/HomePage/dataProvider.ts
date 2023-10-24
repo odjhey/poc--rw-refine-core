@@ -1,38 +1,62 @@
+import { ApolloClient } from '@apollo/client'
 import { DataProvider } from '@refinedev/core'
 import camelcase from 'camelcase'
-import { GraphQLClient } from 'graphql-request'
+import * as gqlBuilder from 'gql-query-builder'
+import pluralize from 'pluralize'
 
 import { generateFilter, generateSort } from './utils'
 
-const dataProvider = (_client: GraphQLClient): Required<DataProvider> => {
+const dataProvider = (client: ApolloClient<any>): Required<DataProvider> => {
   return {
     getList: async ({ resource, pagination, sorters, filters, meta }) => {
+      const { current = 1, pageSize = 10, mode = 'server' } = pagination ?? {}
+
       const sortBy = generateSort(sorters)
       const filterBy = generateFilter(filters)
 
-      const camelResource = camelcase(resource)
+      const camelResource = pluralize(camelcase(resource))
 
       const operation = meta?.operation ?? camelResource
 
-      console.log('get list', {
+      // console.log('get list', {
+      //   operation,
+      //   meta,
+      //   sortBy,
+      //   filterBy,
+      //   pagination,
+      // })
+
+      const { query, variables } = gqlBuilder.query({
         operation,
-        meta,
-        sortBy,
-        filterBy,
-        pagination,
+        variables: {
+          ...meta?.variables,
+          pageInfo: {
+            type: 'PageInfoInput',
+            value: {
+              sort: sortBy,
+              where: { value: filterBy, type: 'JSON' },
+              ...(mode === 'server'
+                ? {
+                    start: (current - 1) * pageSize,
+                    limit: pageSize,
+                  }
+                : {}),
+            },
+          },
+        },
+        fields: [{ data: meta.fields }, { metadata: ['count'] }],
       })
 
-      // generate 100 arrays
-      const data = [...Array(100).keys()].map((i) => ({
-        id: i,
-        title: 'test',
-        status: 'asdf',
-        createdAt: 'sdfi',
-      }))
+      const response = await client.query({
+        query: gql`
+          ${query}
+        `,
+        variables,
+      })
 
       return {
-        data,
-        total: 0,
+        data: response.data[camelResource].data,
+        total: response.data[camelResource].metadata.count,
       }
     },
 
