@@ -69,8 +69,50 @@ export const dataProvider = (
       }
     },
 
-    create: async (_) => {
-      return {}
+    create: async ({ resource, variables, meta }) => {
+      console.log('createeee', { resource, variables, meta })
+
+      const singularResource = pluralize.singular(resource)
+      const camelCreateName = camelcase(`create-${singularResource}`)
+      const pascalCreateName = camelcase(`create-${singularResource}`, {
+        pascalCase: true,
+      })
+
+      const operation = meta?.operation ?? camelCreateName
+      const inputType = meta?.inputType ?? `${pascalCreateName}Input`
+
+      const fields = meta?.fields
+        ? [{ [singularResource]: meta?.fields }]
+        : undefined
+
+      const { query, variables: gqlVariables } = gqlBuilder.mutation({
+        operation,
+        variables: {
+          input: {
+            value: variables,
+            type: inputType,
+            required: true,
+          },
+        },
+        fields: fields ?? [
+          {
+            operation: singularResource,
+            fields: ['id'],
+            variables: {},
+          },
+        ],
+      })
+      const response = await client.mutate({
+        mutation: gql`
+          ${query}
+        `,
+        variables: gqlVariables,
+      })
+
+      console.log('---', response, { operation, singularResource })
+      return {
+        data: response.data[operation][singularResource],
+      }
     },
 
     createMany: async (_) => {

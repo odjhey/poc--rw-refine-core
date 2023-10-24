@@ -20,6 +20,7 @@ const RefineLayout = ({ children }: RefineLayoutProps) => {
         {
           name: 'sampol',
           list: '/sampols',
+          create: '/new-sampol',
           meta: { fields: ['id', 'title', 'status', 'createdAt'] },
         },
       ]}

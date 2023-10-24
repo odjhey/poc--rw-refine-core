@@ -36,8 +36,12 @@ export const schema = gql`
     status: String
   }
 
+  type CreateSampolPayload {
+    sampol: Sampol!
+  }
+
   type Mutation {
-    createSampol(input: CreateSampolInput!): Sampol! @requireAuth
+    createSampol(input: CreateSampolInput!): CreateSampolPayload! @requireAuth
     updateSampol(id: String!, input: UpdateSampolInput!): Sampol! @requireAuth
     deleteSampol(id: String!): Sampol! @requireAuth
   }

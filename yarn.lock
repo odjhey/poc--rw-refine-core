@@ -4822,6 +4822,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@refinedev/react-hook-form@npm:^4.8.10":
+  version: 4.8.10
+  resolution: "@refinedev/react-hook-form@npm:4.8.10"
+  dependencies:
+    react-hook-form: ^7.30.0
+  peerDependencies:
+    "@refinedev/core": ^4.40.0
+    "@types/react": ^17.0.0 || ^18.0.0
+    "@types/react-dom": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+    react-hook-form: ^7.30.0
+  checksum: 6e79624dbee01afbd06e185fc50d69669eb64930d85ead9d841b07629778d7d9fb0bca6e64aa5ecbcd8b77cb6cff66531a33bda1705bd7b4b06ee5245ea1403a
+  languageName: node
+  linkType: hard
+
 "@refinedev/react-table@npm:^5.6.4":
   version: 5.6.4
   resolution: "@refinedev/react-table@npm:5.6.4"
@@ -17189,6 +17205,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-hook-form@npm:^7.30.0":
+  version: 7.47.0
+  resolution: "react-hook-form@npm:7.47.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17 || ^18
+  checksum: f3ab5544ed255fac685e06b7ae7a2d691370ece4dfa45a6d1f5d1a1e3783af7c3599dd3f5306cf9eb255ca6895e3286555ff3cb895a306ba92d8ef2ed474a98e
+  languageName: node
+  linkType: hard
+
 "react-hot-toast@npm:2.4.1":
   version: 2.4.1
   resolution: "react-hot-toast@npm:2.4.1"
@@ -20431,6 +20456,7 @@ __metadata:
     "@redwoodjs/vite": 6.3.2
     "@redwoodjs/web": 6.3.2
     "@refinedev/core": ^4.44.7
+    "@refinedev/react-hook-form": ^4.8.10
     "@refinedev/react-table": ^5.6.4
     "@tanstack/react-table": ^8.10.7
     "@types/react": 18.2.14
