@@ -12,11 +12,11 @@ export const sampols: QueryResolvers['sampols'] = async (args) => {
     orderBy: args.pageInfo.sort,
   })
 
-  return { data, metadata: { count: data.length } }
+  const count = db.sampol.count()
+  return { data, metadata: { count } }
 }
 
 export const sampol: QueryResolvers['sampol'] = ({ id }) => {
-  console.log({ id })
   return {
     id: 'x898709',
     title: 'test',

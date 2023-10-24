@@ -8,7 +8,9 @@ const SampolLayout = ({ children }: SampolLayoutProps) => {
   return (
     <>
       <h1>sampols</h1>
-      <Link to={routes.newSampol()}>New</Link>
+      <Link to={routes.newSampol()} className="link">
+        New
+      </Link>
       {children}
     </>
   )
