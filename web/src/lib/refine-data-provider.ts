@@ -4,9 +4,12 @@ import camelcase from 'camelcase'
 import * as gqlBuilder from 'gql-query-builder'
 import pluralize from 'pluralize'
 
-import { generateFilter, generateSort } from './utils'
+import { generateFilter, generateSort } from '../pages/HomePage/utils'
 
-const dataProvider = (client: ApolloClient<any>): Required<DataProvider> => {
+export const dataProvider = (
+  // TODO: update cache type
+  client: ApolloClient<any>
+): Required<DataProvider> => {
   return {
     getList: async ({ resource, pagination, sorters, filters, meta }) => {
       const { current = 1, pageSize = 10, mode = 'server' } = pagination ?? {}
@@ -139,5 +142,3 @@ const dataProvider = (client: ApolloClient<any>): Required<DataProvider> => {
     },
   }
 }
-
-export default dataProvider

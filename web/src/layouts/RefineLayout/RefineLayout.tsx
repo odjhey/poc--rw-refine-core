@@ -1,8 +1,8 @@
 import { useApolloClient } from '@apollo/client'
 import { Refine } from '@refinedev/core'
 
-import dataProvider from 'src/pages/HomePage/dataProvider'
-import { routerProvider } from 'src/pages/HomePage/routeProvider'
+import { dataProvider } from 'src/lib/refine-data-provider'
+import { routerProvider } from 'src/lib/refine-route-provider'
 
 type RefineLayoutProps = {
   children?: React.ReactNode
