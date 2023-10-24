@@ -4767,6 +4767,61 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@refinedev/core@npm:^4.44.7":
+  version: 4.44.7
+  resolution: "@refinedev/core@npm:4.44.7"
+  dependencies:
+    "@refinedev/devtools-internal": 1.1.4
+    "@tanstack/react-query": ^4.10.1
+    export-to-csv-fix-source-map: ^0.2.1
+    lodash: ^4.17.21
+    lodash-es: ^4.17.21
+    papaparse: ^5.3.0
+    pluralize: ^8.0.0
+    qs: ^6.10.1
+    tslib: ^2.3.1
+    warn-once: ^0.1.0
+  peerDependencies:
+    "@tanstack/react-query": ^4.10.1
+    "@types/react": ^17.0.0 || ^18.0.0
+    "@types/react-dom": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 432898af47dc2b0b64725b8d5d69ccb5c91dfcca998e615b78dbac60254a3b3dd46535e3d06c5caaed79dd2bd253b817383baea26944b49b782936b753fa9686
+  languageName: node
+  linkType: hard
+
+"@refinedev/devtools-internal@npm:1.1.4":
+  version: 1.1.4
+  resolution: "@refinedev/devtools-internal@npm:1.1.4"
+  dependencies:
+    "@refinedev/devtools-shared": 1.1.2
+    "@tanstack/react-query": ^4.10.1
+    error-stack-parser: ^2.1.4
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    "@types/react-dom": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: dc605270add2c90a2025b39ea91c007b57236f4770aa357faaa03f5ad7b1cdf983e225ac953f64be26dbac1a3222eb777730656eea7e5ea67650650d3676b9db
+  languageName: node
+  linkType: hard
+
+"@refinedev/devtools-shared@npm:1.1.2":
+  version: 1.1.2
+  resolution: "@refinedev/devtools-shared@npm:1.1.2"
+  dependencies:
+    "@tanstack/react-query": ^4.10.1
+    error-stack-parser: ^2.1.4
+  peerDependencies:
+    "@types/react": ^17.0.0 || ^18.0.0
+    "@types/react-dom": ^17.0.0 || ^18.0.0
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: a19746a7927cbf89347521c7680fd04c6da1b39beb405b0732755b858585433783de0dbf0f2bb0fddcfd1fba20f03a25e451a7d02860f362be1773507467b9cd
+  languageName: node
+  linkType: hard
+
 "@repeaterjs/repeater@npm:3.0.4, @repeaterjs/repeater@npm:^3.0.4":
   version: 3.0.4
   resolution: "@repeaterjs/repeater@npm:3.0.4"
@@ -4829,6 +4884,32 @@ __metadata:
   dependencies:
     defer-to-connect: ^1.0.1
   checksum: 0594140e027ce4e98970c6d176457fcbff80900b1b3101ac0d08628ca6d21d70e0b94c6aaada94d4f76c1423fcc7195af83da145ce0fd556fc0595ca74a17b8b
+  languageName: node
+  linkType: hard
+
+"@tanstack/query-core@npm:4.36.1":
+  version: 4.36.1
+  resolution: "@tanstack/query-core@npm:4.36.1"
+  checksum: f286529dbd4c9cdb237ef0bfa72d785c74b5d0958290e8d85c343043ba7be4bbc6cb771167d8c13ca12bd4f37412a3d8b69331f57daa375b2071fd4752aed66a
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:^4.10.1":
+  version: 4.36.1
+  resolution: "@tanstack/react-query@npm:4.36.1"
+  dependencies:
+    "@tanstack/query-core": 4.36.1
+    use-sync-external-store: ^1.2.0
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 15d9c98269d52fbdd49f4eb4b077b5d70346f904ea2ae51fd0400949d731afde658919a1143dd849fb50d4c5b6d0ab072e7b313a098ef316dd1c24089653f626
   languageName: node
   linkType: hard
 
@@ -9934,7 +10015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"error-stack-parser@npm:^2.0.6":
+"error-stack-parser@npm:^2.0.6, error-stack-parser@npm:^2.1.4":
   version: 2.1.4
   resolution: "error-stack-parser@npm:2.1.4"
   dependencies:
@@ -10683,6 +10764,13 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 160456d2d647e6019640bd07111634d8c353038d9fa40176afb7cd49b0548bdae83b56d05e907c2cce2300b81cae35d800ef92fefb9d0208e190fa3b7d6bb579
+  languageName: node
+  linkType: hard
+
+"export-to-csv-fix-source-map@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "export-to-csv-fix-source-map@npm:0.2.1"
+  checksum: 1d6dfefca2407a1cd0c436931bea9a2bedfffc53d6f7611e015c755f955306e46cc7726fd09e2d3ac01fdd6c130a2939a31740ecb34e0845cf58ad5fef16dbe0
   languageName: node
   linkType: hard
 
@@ -14226,6 +14314,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash-es@npm:^4.17.21":
+  version: 4.17.21
+  resolution: "lodash-es@npm:4.17.21"
+  checksum: fb407355f7e6cd523a9383e76e6b455321f0f153a6c9625e21a8827d10c54c2a2341bd2ae8d034358b60e07325e1330c14c224ff582d04612a46a4f0479ff2f2
+  languageName: node
+  linkType: hard
+
 "lodash.chunk@npm:^4.2.0":
   version: 4.2.0
   resolution: "lodash.chunk@npm:4.2.0"
@@ -15802,6 +15897,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"papaparse@npm:^5.3.0":
+  version: 5.4.1
+  resolution: "papaparse@npm:5.4.1"
+  checksum: 201f37c4813453fed5bfb4c01816696b099d2db9ff1e8fb610acc4771fdde91d2a22b6094721edb0fedb21ca3c46f04263f68be4beb3e35b8c72278f0cedc7b7
+  languageName: node
+  linkType: hard
+
 "parallel-transform@npm:^1.1.0":
   version: 1.2.0
   resolution: "parallel-transform@npm:1.2.0"
@@ -16188,7 +16290,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pluralize@npm:8.0.0":
+"pluralize@npm:8.0.0, pluralize@npm:^8.0.0":
   version: 8.0.0
   resolution: "pluralize@npm:8.0.0"
   checksum: 2044cfc34b2e8c88b73379ea4a36fc577db04f651c2909041b054c981cd863dd5373ebd030123ab058d194ae615d3a97cfdac653991e499d10caf592e8b3dc33
@@ -16895,7 +16997,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"qs@npm:6.11.2, qs@npm:^6.11.2":
+"qs@npm:6.11.2, qs@npm:^6.10.1, qs@npm:^6.11.2":
   version: 6.11.2
   resolution: "qs@npm:6.11.2"
   dependencies:
@@ -19950,6 +20052,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"use-sync-external-store@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "use-sync-external-store@npm:1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+  checksum: ac4814e5592524f242921157e791b022efe36e451fe0d4fd4d204322d5433a4fc300d63b0ade5185f8e0735ded044c70bcf6d2352db0f74d097a238cebd2da02
+  languageName: node
+  linkType: hard
+
 "use@npm:^3.1.0":
   version: 3.1.1
   resolution: "use@npm:3.1.1"
@@ -20183,6 +20294,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"warn-once@npm:^0.1.0":
+  version: 0.1.1
+  resolution: "warn-once@npm:0.1.1"
+  checksum: f531e7b2382124f51e6d8f97b8c865246db8ab6ff4e53257a2d274e0f02b97d7201eb35db481843dc155815e154ad7afb53b01c4d4db15fb5aa073562496aff7
+  languageName: node
+  linkType: hard
+
 "watchpack-chokidar2@npm:^2.0.1":
   version: 2.0.1
   resolution: "watchpack-chokidar2@npm:2.0.1"
@@ -20265,9 +20383,11 @@ __metadata:
     "@redwoodjs/router": 6.3.2
     "@redwoodjs/vite": 6.3.2
     "@redwoodjs/web": 6.3.2
+    "@refinedev/core": ^4.44.7
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
     prop-types: 15.8.1
+    qs: ^6.11.2
     react: 18.2.0
     react-dom: 18.2.0
   languageName: unknown
