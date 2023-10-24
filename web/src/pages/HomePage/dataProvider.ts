@@ -1,25 +1,37 @@
 import { DataProvider } from '@refinedev/core'
+import camelcase from 'camelcase'
 import { GraphQLClient } from 'graphql-request'
 
-// import { generateFilter, generateSort } from './utils'
+import { generateFilter, generateSort } from './utils'
 
 const dataProvider = (_client: GraphQLClient): Required<DataProvider> => {
   return {
-    // getList: async ({ resource, pagination, sorters, filters, meta }) => {
-    getList: async (_) => {
-      // const { current = 1, pageSize = 10, mode = 'server' } = pagination ?? {}
+    getList: async ({ resource, pagination, sorters, filters, meta }) => {
+      const sortBy = generateSort(sorters)
+      const filterBy = generateFilter(filters)
 
-      // const sortBy = generateSort(sorters)
-      // const filterBy = generateFilter(filters)
+      const camelResource = camelcase(resource)
 
-      // const camelResource = camelCase(resource)
+      const operation = meta?.operation ?? camelResource
 
-      // const operation = meta?.operation ?? camelResource
+      console.log('get list', {
+        operation,
+        meta,
+        sortBy,
+        filterBy,
+        pagination,
+      })
 
-      console.log('get list')
+      // generate 100 arrays
+      const data = [...Array(100).keys()].map((i) => ({
+        id: i,
+        title: 'test',
+        status: 'asdf',
+        createdAt: 'sdfi',
+      }))
 
       return {
-        data: [],
+        data,
         total: 0,
       }
     },

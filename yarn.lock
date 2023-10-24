@@ -4822,6 +4822,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@refinedev/react-table@npm:^5.6.4":
+  version: 5.6.4
+  resolution: "@refinedev/react-table@npm:5.6.4"
+  dependencies:
+    "@tanstack/react-table": ^8.2.6
+  peerDependencies:
+    "@refinedev/core": ^4.0.0
+    "@tanstack/react-table": ^8.2.6
+    react: ^17.0.0 || ^18.0.0
+    react-dom: ^17.0.0 || ^18.0.0
+  checksum: 3523c78e5d852932966a7e552dc7f7db3c96fd6d15bf2be0962bc61453be2ff1703c74751c90479dde7f252f3c3eb1ece4266cd64ef7e9ead8d8804550a312ee
+  languageName: node
+  linkType: hard
+
 "@repeaterjs/repeater@npm:3.0.4, @repeaterjs/repeater@npm:^3.0.4":
   version: 3.0.4
   resolution: "@repeaterjs/repeater@npm:3.0.4"
@@ -4910,6 +4924,25 @@ __metadata:
     react-native:
       optional: true
   checksum: 15d9c98269d52fbdd49f4eb4b077b5d70346f904ea2ae51fd0400949d731afde658919a1143dd849fb50d4c5b6d0ab072e7b313a098ef316dd1c24089653f626
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-table@npm:^8.10.7, @tanstack/react-table@npm:^8.2.6":
+  version: 8.10.7
+  resolution: "@tanstack/react-table@npm:8.10.7"
+  dependencies:
+    "@tanstack/table-core": 8.10.7
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: 2ddf6f90b06e7af069f16dbe5d0dc8c8afab3de88c25e33f6c297beaf2507c2e46fee1f746f7977d48bad2114909bba0016026fc2b6a85bcaee472cdafdc7ffd
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.10.7":
+  version: 8.10.7
+  resolution: "@tanstack/table-core@npm:8.10.7"
+  checksum: 3f671484319094443bb2db86356f408d4246e22bebd7ad444edc919fef131899384c3a27261c5ee01fb18887bc9157c5a0d9db3e32aae940ce5416f6e58b038b
   languageName: node
   linkType: hard
 
@@ -7891,6 +7924,13 @@ __metadata:
   version: 5.3.1
   resolution: "camelcase@npm:5.3.1"
   checksum: 92ff9b443bfe8abb15f2b1513ca182d16126359ad4f955ebc83dc4ddcc4ef3fdd2c078bc223f2673dc223488e75c99b16cc4d056624374b799e6a1555cf61b23
+  languageName: node
+  linkType: hard
+
+"camelcase@npm:^8.0.0":
+  version: 8.0.0
+  resolution: "camelcase@npm:8.0.0"
+  checksum: 56c5fe072f0523c9908cdaac21d4a3b3fb0f608fb2e9ba90a60e792b95dd3bb3d1f3523873ab17d86d146e94171305f73ef619e2f538bd759675bc4a14b4bff3
   languageName: node
   linkType: hard
 
@@ -20384,8 +20424,11 @@ __metadata:
     "@redwoodjs/vite": 6.3.2
     "@redwoodjs/web": 6.3.2
     "@refinedev/core": ^4.44.7
+    "@refinedev/react-table": ^5.6.4
+    "@tanstack/react-table": ^8.10.7
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
+    camelcase: ^8.0.0
     prop-types: 15.8.1
     qs: ^6.11.2
     react: 18.2.0

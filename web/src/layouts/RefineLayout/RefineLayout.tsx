@@ -10,7 +10,7 @@ type RefineLayoutProps = {
 const RefineLayout = ({ children }: RefineLayoutProps) => {
   return (
     <Refine
-      dataProvider={dataProvider}
+      dataProvider={dataProvider()}
       routerProvider={routerProvider}
       resources={[{ name: 'sampol', list: '/sampol' }]}
     >
