@@ -11,4 +11,5 @@
 - [ ] test that rbac and other auth still works (im guess yes since rw-api-gql padin gamit)
 - [ ] include CRUD operations
 - [ ] add relationships navigation
-
+- [ ] update api model scaffolds to support expected schema by refine
+- [ ] add a strongly typed web list and forms generator from a web frontend schema file
