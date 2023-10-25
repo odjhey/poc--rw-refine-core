@@ -14,3 +14,23 @@ model Sampol {
   status    String
   createdAt DateTime @default(now())
 }
+
+model Job {
+  id          String   @id @default(cuid())
+  title       String
+  status      String
+  description String
+  createdAt   DateTime @default(now())
+
+  Tasks Task[]
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  status      String
+  description String
+  createdAt   DateTime @default(now())
+  Job         Job?     @relation(fields: [jobId], references: [id])
+  jobId       String
+}
