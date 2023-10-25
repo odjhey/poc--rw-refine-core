@@ -32,6 +32,11 @@ const TasksList = () => {
         header: 'CreatedAt',
         accessorKey: 'createdAt',
       },
+      {
+        id: 'jobId',
+        header: 'jobId',
+        accessorKey: 'jobId',
+      },
     ],
     []
   )

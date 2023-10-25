@@ -33,7 +33,7 @@ const RefineLayout = ({ children }: RefineLayoutProps) => {
           name: 'task',
           list: '/tasks',
           create: '/tasks/new',
-          meta: { fields: ['id', 'title', 'status', 'createdAt'] },
+          meta: { fields: ['id', 'title', 'status', 'createdAt', 'jobId'] },
         },
       ]}
     >
