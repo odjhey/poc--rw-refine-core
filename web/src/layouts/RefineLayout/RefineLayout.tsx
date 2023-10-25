@@ -23,6 +23,18 @@ const RefineLayout = ({ children }: RefineLayoutProps) => {
           create: '/new-sampol',
           meta: { fields: ['id', 'title', 'status', 'createdAt'] },
         },
+        {
+          name: 'job',
+          list: '/jobs',
+          create: '/jobs/new',
+          meta: { fields: ['id', 'title', 'status', 'createdAt'] },
+        },
+        {
+          name: 'task',
+          list: '/tasks',
+          create: '/tasks/new',
+          meta: { fields: ['id', 'title', 'status', 'createdAt'] },
+        },
       ]}
     >
       {children}

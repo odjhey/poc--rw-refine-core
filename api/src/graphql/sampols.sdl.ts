@@ -6,16 +6,6 @@ export const schema = gql`
     createdAt: String!
   }
 
-  input PageInfoInput {
-    sort: [JSON!]!
-    where: JSON
-    start: Int
-    limit: Int
-  }
-
-  type ListMeta {
-    count: Int!
-  }
   type SampolsPayload {
     data: [Sampol!]!
     metadata: ListMeta!

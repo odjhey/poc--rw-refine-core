@@ -20833,6 +20833,7 @@ __metadata:
     camelcase: ^8.0.0
     daisyui: ^3.9.3
     gql-query-builder: ^3.8.0
+    humanize-string: 2.1.0
     pluralize: ^8.0.0
     postcss: ^8.4.31
     postcss-loader: ^7.3.3

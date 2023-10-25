@@ -9,6 +9,8 @@
 
 import { Router, Route, Set } from '@redwoodjs/router'
 
+import ScaffoldLayout from 'src/layouts/ScaffoldLayout'
+
 import MainLayout from './layouts/MainLayout/MainLayout'
 import RefineLayout from './layouts/RefineLayout/RefineLayout'
 import SampolLayout from './layouts/SampolsLayout/SampolsLayout'
@@ -18,6 +20,14 @@ const Routes = () => {
     <Router>
       <Set wrap={MainLayout}>
         <Set wrap={RefineLayout}>
+          <Set wrap={ScaffoldLayout} title="Jobs" titleTo="jobs" buttonLabel="New Job" buttonTo="newJob">
+            <Route path="/jobs/new" page={JobNewJobPage} name="newJob" />
+            <Route path="/jobs" page={JobJobsPage} name="jobs" />
+          </Set>
+          <Set wrap={ScaffoldLayout} title="Tasks" titleTo="tasks" buttonLabel="New Task" buttonTo="newTask">
+            <Route path="/tasks/new" page={TaskNewTaskPage} name="newTask" />
+            <Route path="/tasks" page={TaskTasksPage} name="tasks" />
+          </Set>
           <Route path="/new-sampol" page={NewSampolPage} name="newSampol" />
           <Set wrap={SampolLayout}>
             <Route path="/sampols" page={SampolsPage} name="sampols" />

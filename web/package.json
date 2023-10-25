@@ -21,6 +21,7 @@
     "camelcase": "^8.0.0",
     "daisyui": "^3.9.3",
     "gql-query-builder": "^3.8.0",
+    "humanize-string": "2.1.0",
     "pluralize": "^8.0.0",
     "prop-types": "15.8.1",
     "qs": "^6.11.2",
