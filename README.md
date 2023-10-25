@@ -13,3 +13,4 @@
 - [ ] add relationships navigation
 - [ ] update api model scaffolds to support expected schema by refine
 - [ ] add a strongly typed web list and forms generator from a web frontend schema file
+- [ ] see where rw-form and refine-form overlaps, both is using RHF so should be good
