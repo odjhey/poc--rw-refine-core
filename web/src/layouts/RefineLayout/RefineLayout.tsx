@@ -1,5 +1,9 @@
+import { PropsWithChildren } from 'react'
+
 import { useApolloClient } from '@apollo/client'
-import { Refine } from '@refinedev/core'
+import { Refine, useBreadcrumb, useMenu } from '@refinedev/core'
+
+import { Link } from '@redwoodjs/router'
 
 import { dataProvider } from 'src/lib/refine-data-provider'
 import { routerProvider } from 'src/lib/refine-route-provider'
@@ -8,12 +12,63 @@ type RefineLayoutProps = {
   children?: React.ReactNode
 }
 
+const Layout = ({ children }: PropsWithChildren) => {
+  return (
+    <div>
+      <Menu></Menu>
+      <div className="p-2">
+        <Breadcrumb></Breadcrumb>
+        <div>{children}</div>
+      </div>
+    </div>
+  )
+}
+
+const Menu = () => {
+  const { menuItems } = useMenu()
+
+  return (
+    <>
+      <ul className="menu menu-horizontal">
+        {menuItems.map((item) => (
+          <li key={item.key}>
+            <Link to={item.route}>{item.label}</Link>
+          </li>
+        ))}
+      </ul>
+    </>
+  )
+}
+
+const Breadcrumb = () => {
+  const { breadcrumbs } = useBreadcrumb()
+
+  return (
+    <>
+      <div className="breadcrumbs">
+        <ul>
+          {breadcrumbs.map((breadcrumb) => (
+            <li key={`breadcrumb-${breadcrumb.label}`}>
+              {breadcrumb.href ? (
+                <Link to={breadcrumb.href}>{breadcrumb.label}</Link>
+              ) : (
+                <span>{breadcrumb.label}</span>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
+  )
+}
+
 const RefineLayout = ({ children }: RefineLayoutProps) => {
   const client = useApolloClient()
 
   return (
     <Refine
-      // find a way to extract same gql client (apollo client) from rw
+      // mejo buggy yung syncWithLocation
+      // options={{ syncWithLocation: true }}
       dataProvider={dataProvider(client)}
       routerProvider={routerProvider}
       resources={[
@@ -37,7 +92,7 @@ const RefineLayout = ({ children }: RefineLayoutProps) => {
         },
       ]}
     >
-      {children}
+      <Layout>{children}</Layout>
     </Refine>
   )
 }
