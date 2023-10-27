@@ -15,4 +15,5 @@
 - [ ] add a strongly typed web list and forms generator from a web frontend schema file
 - [ ] see where rw-form and refine-form overlaps, both is using RHF so should be good
 - [ ] rw form errors (backend error results)
-- [ ] unravel the power of refines `useSelect`
+- [ ] unravel the power of refine's `useSelect`
+- [ ] add toasts
