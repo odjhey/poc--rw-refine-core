@@ -11,7 +11,7 @@
     ]
   },
   "dependencies": {
-    "@redwoodjs/forms": "6.3.2",
+    "@redwoodjs/forms": "6.6.2",
     "@redwoodjs/router": "6.3.2",
     "@redwoodjs/web": "6.3.2",
     "@refinedev/core": "^4.44.7",
