@@ -17,3 +17,4 @@
 - [ ] rw form errors (backend error results)
 - [ ] unravel the power of refine's `useSelect`
 - [ ] add toasts
+- [ ] add scripts to autogen codes for resources. or better, just straight up use a generic component for everything (see if can use shadcn)
